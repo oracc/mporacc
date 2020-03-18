@@ -1,0 +1,9 @@
+#!/bin/sh
+ORACC=/home/ubuntu/orc
+ORACC_HOME=$ORACC
+ORACC_MODE=single
+ORACC_USER=no
+ORACC_HOST=`hostname -f`
+ORACC_BUILDS=/home/ubuntu/orc
+export ORACC ORACC_BUILDS ORACC_HOME ORACC_MODE ORACC_USER ORACC_HOST
+. ./oraccpaths.sh
