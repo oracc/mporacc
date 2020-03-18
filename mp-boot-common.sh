@@ -6,8 +6,7 @@ if [ "$mpname" == "" ]; then
 fi
 
 ## set up paths
-multipass exec $mpname cp -f $mpname/mp-oraccenv.single oracc/
-multipass exec $mpname oracc/preconfig.sh
+multipass exec $mpname sudo oracc/preconfig.sh
 
 ## build and install oracc software, odoc and osys
 multipass exec $mpname oracc/lnx-config.sh

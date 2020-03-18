@@ -1,5 +1,5 @@
 #!/bin/sh
 mp-init-common.sh multi
-multipass exec mporacc oraccuser.sh
-multipass exec mporacc cp -f mporacc/mp-oraccenv.multi oracc/
+multipass exec mposingle oraccuser.sh
+multipass exec mposingle cp -f mposingle/mp-oraccenv.multi oracc/oraccenv.sh
 mp-boot-common.sh
