@@ -19,7 +19,7 @@ multipass exec $mpname mporacc/mp-exec.sh mporacc ./mp-apache2.sh
 
 ## Configure /etc/hosts on the hosting machine (not the VM), if that exists
 ## (how to do this on a Windows box?)
-mpaddr=`multipass exec $mpname -- hostname -I`
+./mp-etc-hosts.sh
 
 ## install Oracc projects from config list, e.g., epsd2
 ### via oracc serve mechanism?
