@@ -1,0 +1,27 @@
+<VirtualHost *:80>
+    ServerAdmin stinney@upenn.edu
+    ServerName @@MPNAME@@
+    DocumentRoot "@@ORACC_BUILDS@@/www"
+    ScriptAliasMatch ^/cgi-bin/(.*$) "@@ORACC_BUILDS@@/www/cgi-bin/$1"
+    ErrorLog "/var/log/apache2/oracc-error_log"
+    CustomLog "/var/log/apache2/oracc-access_log" common
+    <Directory "@@ORACC_BUILDS@@/www">
+               Options Indexes FollowSymLinks MultiViews
+               AllowOverride None
+	       Require all granted
+    </Directory>
+    <Directory "@@ORACC_BUILDS@@/www/cgi-bin">
+               AllowOverride None
+               Options ExecCGI
+	       Require all granted
+    </Directory>
+    RewriteEngine on
+    RewriteCond @@ORACC_BUILDS@@/www/%{REQUEST_FILENAME} -f
+    RewriteRule ^(.+)$ - [L]
+    RewriteCond @@ORACC_BUILDS@@/www/%{REQUEST_FILENAME}  -d
+    RewriteRule ^(.+[^/])$           $1/  [R,L]
+    RewriteCond @@ORACC_BUILDS@@/www/%{REQUEST_FILENAME}/index.html -f
+    RewriteRule ^(.+)/?$ $1/index.html [L]
+    RewriteRule \.(?:css|js|html|xml)$ - [L]
+    RewriteRule ^(.*)$ /cgi-bin/oracc-server$1 [T=application/x-httpd-cgi,L]
+</VirtualHost>

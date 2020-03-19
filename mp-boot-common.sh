@@ -6,13 +6,13 @@ if [ "$mpname" == "" ]; then
 fi
 
 ## set up paths
-multipass exec $mpname sudo oracc/preconfig.sh
+multipass exec $mpname mporacc/mp-sudo.sh oracc ./preconfig.sh
 
 ## build and install oracc software, odoc and osys
-multipass exec $mpname oracc/lnx-config.sh
+multipass exec $mpname mporacc/mp-exec.sh oracc ./lnx-config.sh
 
 ## install Oracc boot projects
-multipass exec $mpname boot-projects.sh
+multipass exec $mpname mporacc/mp-exec.sh oracc ./boot-projects.sh
 
 ## install Oracc projects from config list, e.g., epsd2
 ### via oracc serve mechanism?
