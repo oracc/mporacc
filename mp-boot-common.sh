@@ -14,6 +14,12 @@ multipass exec $mpname mporacc/mp-exec.sh oracc ./lnx-config.sh
 ## install Oracc boot projects
 multipass exec $mpname mporacc/mp-exec.sh oracc ./boot-projects.sh
 
+## bring up Apache
+
+## Configure /etc/hosts on the hosting machine (not the VM), if that exists
+## (how to do this on a Windows box?)
+mpaddr=`multipass exec $mpname -- hostname -I`
+
 ## install Oracc projects from config list, e.g., epsd2
 ### via oracc serve mechanism?
 ### or via github repo?
