@@ -15,6 +15,7 @@ multipass exec $mpname mporacc/mp-exec.sh oracc ./lnx-config.sh
 multipass exec $mpname mporacc/mp-exec.sh oracc ./boot-projects.sh
 
 ## bring up Apache
+multipass exec $mpname mporacc/mp-exec.sh mporacc ./mp-apache2.sh
 
 ## Configure /etc/hosts on the hosting machine (not the VM), if that exists
 ## (how to do this on a Windows box?)

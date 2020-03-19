@@ -1,7 +1,9 @@
 #!/bin/sh
 #
 # Edit apache2 configuration and install Oracc vhost file for Ubuntu 18
-# Must be run sudo
+
+# Add ServerName to apache2.conf
+sudo ./mp-apache2-conf.plx
 
 mpname=`uname -n`
 
@@ -14,20 +16,13 @@ fi
 sed "s/@@MPNAME@@/$mpname/g" <oracc-vhost.conf.in \
     | sed "s,@@ORACC_BUILDS@@,${ORACC_BUILDS},g" >oracc-vhost.conf
 
-# Copy the Oracc vhost into place
+# Remove the default host setup and copy the Oracc vhost into place
+sudo rm -f /etc/apache2/sites-enabled/000-default.conf
 sudo cp oracc-vhost.conf /etc/apache2/sites-enabled/
 
-#
-# Edit server name
-#
-# Is this necessary? /etc/apache2/apache2.conf has ServerName
-# build-oracc.museum.upenn.edu on build but no ServerName is given in
-# distributed apache2.conf
-#
-
-# Get the modules etc linked properly
+# Get the modules etc. linked properly
 sudo ./mp-apache2-links.sh
 
 # Stop/start apache with new config
-apachectl stop
-apachectl start
+sudo apachectl stop
+sudo apachectl start
