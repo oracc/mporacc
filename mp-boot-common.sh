@@ -17,10 +17,14 @@ multipass exec $mpname mporacc/mp-exec.sh oracc ./boot-projects.sh
 ## bring up Apache
 multipass exec $mpname mporacc/mp-exec.sh mporacc ./mp-apache2.sh
 
-## Configure /etc/hosts on the hosting machine (not the VM), if that exists
+## Configure default user's profile to load Oracc environment
+multipass exec $mpname mporacc/mp-profile.sh
+
+## Configure /etc/hosts on the hosting machine (not the VM);
 ## (how to do this on a Windows box?)
 ./mp-etc-hosts.sh
 
+## Configure default user's profile to load Oracc environment
 ## install Oracc projects from config list, e.g., epsd2
 ### via oracc serve mechanism?
 ### or via github repo?

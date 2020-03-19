@@ -1,5 +1,4 @@
 #!/bin/sh
-
 if [ -r ~/orc/bin/oraccenv.sh ]; then
     echo ". ~/orc/bin/oraccenv.sh"  >>.profile
 elif [ -r /home/oracc/bin/oraccenv.sh ]; then
