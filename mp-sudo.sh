@@ -4,5 +4,5 @@
 #
 cd $1
 ls -l oraccenv.sh
-. oraccenv.sh
+. ./oraccenv.sh
 sudo $2
