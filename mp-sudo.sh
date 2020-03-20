@@ -4,5 +4,9 @@
 #
 cd $1
 ls -l oraccenv.sh
-. ./oraccenv.sh
+if [ -r oraccenv.sh ]; then
+    . ./oraccenv.sh
+else
+    . ../oracc/oraccenv.sh
+fi
 sudo $2
