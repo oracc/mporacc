@@ -12,7 +12,7 @@ multipass exec $mpname mporacc/mp-sudo.sh oracc ./preconfig.sh
 multipass exec $mpname mporacc/mp-exec.sh oracc ./lnx-config.sh
 
 ## install Oracc boot projects
-multipass exec $mpname mporacc/mp-exec.sh oracc ./boot-projects.sh
+multipass exec $mpname mporacc/mp-sudo.sh oracc ./boot-projects.sh
 
 ## bring up Apache
 multipass exec $mpname mporacc/mp-exec.sh mporacc ./mp-apache2.sh
