@@ -4,3 +4,10 @@ if [ "$1" == "" ]; then
     exit 1
 fi
 printf "%s" $1 >~/oracc/.oraccuser
+# Only support MacOs and Linux for now; on Windows use Multipass.
+if [ "$uname" = "Linux" ]; then
+    oraccgroup=oracc
+else
+    oraccgroup=staff
+fi
+printf "%s" $1 >~/oracc/.oraccgroup
