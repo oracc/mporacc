@@ -11,6 +11,9 @@ multipass exec $mpname mporacc/mp-sudo.sh oracc ./preconfig.sh
 ## build and install oracc software, odoc and osys
 multipass exec $mpname mporacc/mp-exec.sh oracc ./lnx-config.sh
 multipass exec $mpname mporacc/mp-exec.sh osys ./lnx-config.sh
+if [ "$ORACC_MODE" == "single" ]; then
+    multipass exec $mpname -- touch .fakeserver
+fi
 
 ## install Oracc boot projects
 multipass exec $mpname mporacc/mp-sudo.sh oracc ./boot-projects.sh
