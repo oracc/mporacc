@@ -39,6 +39,7 @@ multipass exec $mpname mporacc/mp-profile.sh
 ./mp-etc-hosts.sh
 
 ## Configure default user's profile to load Oracc environment
+
 ## install Oracc projects from config list, e.g., epsd2
 ### via oracc serve mechanism?
 ### or via github repo?
