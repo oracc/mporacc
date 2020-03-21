@@ -6,8 +6,4 @@ ORACC_USER=no
 ORACC_HOST=`hostname -f`
 ORACC_BUILDS=/home/ubuntu/orc
 export ORACC ORACC_BUILDS ORACC_HOME ORACC_MODE ORACC_USER ORACC_HOST
-if [ -r oraccpaths.sh ]; then
-    . ./oraccpaths.sh
-else
-    . ../oracc/oraccpaths.sh
-fi
+export PATH=$PATH:$ORACC/bin:$ORACC/sbin
