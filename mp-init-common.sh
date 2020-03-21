@@ -1,7 +1,7 @@
 #!/bin/sh
 mpname=$1
 if [ "$mpname" == "" ]; then
-    echo "$0: argument must be osingle or omulti"
+    echo "$0: argument must be mposingle or mpomulti"
     exit 1
 fi
 multipass launch --name $mpname --mem 8G --disk 120G
